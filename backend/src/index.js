@@ -1,24 +1,21 @@
 import express from 'express'
 import cors from 'cors'
 
-import {pool} from './config/db.js'
+import { UserRouter } from './modules/users/user.routes.js'
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.get('/health', (req, res) => {
-  res.send({ status: 'OK' })
-})
+app.use('/api/v1/users', UserRouter)
 
-app.get('/categories', async (req, res, next) => {
+app.use((err, req, res, next) => {
+  console.log("Central Error Manager: ",err);
+  res.status(err.statusCode || 500).json({
+    status: 'error',
+    message: err.message || 'Internal Server Error'
+  })
 
-  try {
-    const [rows] = await pool.query('SELECT * FROM categories')
-    res.json(rows)
-  } catch (err) {
-    next(err)
-  }
 })
 
 const PORT = process.env.PORT || 4000
