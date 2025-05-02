@@ -13,14 +13,22 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "cors": "2.8.5",
     "dotenv": "^16.5.0",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.0",
-    "pg": "^8.14.1"
+    "pg": "^8.14.1",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.2",
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "express": "5.1.0",
     "nodemon": "^3.1.9",
     "standard": "^17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
   }
 }

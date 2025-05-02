@@ -1,0 +1,49 @@
+### Get all users
+GET http://localhost:4000/api/v1/users/
+
+### get trivia by id
+GET http://localhost:4000/api/v1/trivia?id=3d34f2a4-d916-40f2-90ad-f8ecab37d0c5
+
+### Create all users
+POST http://localhost:4000/api/v1/users/
+Content-Type: application/json
+
+{
+    "email" : "example@gmail.com", 
+    "alias" : "example", 
+    "passwordHash": "a1b2c3",
+    "avatarUrl": "image.jpg"
+}
+
+### create a trivia
+POST http://localhost:4000/api/v1/trivia/
+Content-Type: application/json
+
+{
+    "title" : "World War 2", 
+    "description" : "A trivia with question about the world war 2", 
+    "category_id": "9762635e-2118-11f0-a310-0a002700000e",
+    "difficulty": "medium"
+}
+
+### login
+POST http://localhost:4000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email" : "saul@gmail.com", 
+    "password" : "1234"
+}
+
+### register
+POST http://localhost:4000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "email" : "saul@gmail.com", 
+    "alias" : "saul", 
+    "passwordHash": "1234",
+    "avatarUrl": "saul.jpg"
+}
+
+
